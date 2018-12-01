@@ -192,4 +192,13 @@ struct
       {cast=cast, story = chapterHeader ^ intro ^ story}
     end
 
+  fun writeNovel fname =
+  let
+    val file = TextIO.openOut fname
+    val {cast,story} = gen 50000
+  in
+    TextIO.outputSubstr (file, Substring.full story)
+  end
+
+
 end
